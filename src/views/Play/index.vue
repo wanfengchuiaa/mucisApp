@@ -70,7 +70,7 @@
 
 <script>
 // 获取歌曲详情和 歌曲的歌词接口(引入完后解开)
-// import { getSongByIdAPI, getLyricByIdAPI } from '@/api'
+import { getSongByIdAPI, getLyricByIdAPI } from '@/api'
 import { Icon } from 'vant'
 export default {
   components: {
@@ -96,15 +96,15 @@ export default {
   methods: {
     // 获取歌曲详情, 和歌词方法引入后解开
     async getSong () {
-      // // 获取歌曲详情, 和歌词方法
-      // const res = await getSongByIdAPI(this.id)
-      // this.songInfo = res.data.songs[0]
-      // // 获取-并调用_formatLyr方法, 处理歌词
-      // const lyrContent = await getLyricByIdAPI(this.id)
-      // const lyricStr = lyrContent.data.lrc.lyric
-      // this.lyric = this._formatLyr(lyricStr)
-      // // 初始化完毕先显示零秒歌词
-      // this.curLyric = this.lyric[0]
+      // 获取歌曲详情, 和歌词方法
+      const res = await getSongByIdAPI(this.id)
+      this.songInfo = res.data.songs[0]
+      // 获取-并调用_formatLyr方法, 处理歌词
+      const lyrContent = await getLyricByIdAPI(this.id)
+      const lyricStr = lyrContent.data.lrc.lyric
+      this.lyric = this._formatLyr(lyricStr)
+      // 初始化完毕先显示零秒歌词
+      this.curLyric = this.lyric[0]
     },
     _formatLyr (lyricStr) {
       // 可以看network观察歌词数据是一个大字符串, 进行拆分.

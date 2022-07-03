@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/layout/home'
+    redirect: '/layout/Home'
   },
   {
     path: '/play',
